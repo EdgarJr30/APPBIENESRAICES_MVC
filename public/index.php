@@ -34,6 +34,7 @@ $router->get('/blog', [PaginasController::class, 'blog']);
 $router->get('/entrada', [PaginasController::class, 'entrada']);
 $router->get('/contacto', [PaginasController::class, 'contacto']);
 $router->post('/contacto', [PaginasController::class, 'contacto']);
+$router->get('/notfound', [PaginasController::class, 'notfound']);
 
 //Login y Autenticacion
 $router->get('/login', [LoginController::class, 'login']);

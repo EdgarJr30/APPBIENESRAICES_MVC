@@ -117,4 +117,8 @@ class PaginasController {
             'mensaje' => $mensaje
         ]);
     }
+
+    public static function notfound(Router $router) {
+        $router->render('paginas/notfound');
+    }
 }
