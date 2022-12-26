@@ -30,10 +30,13 @@ class Router
         $urlActual = $_SERVER['REQUEST_URI'] === '' ? '/' : $_SERVER['REQUEST_URI'];
         $metodo = $_SERVER['REQUEST_METHOD'];
 
+        $splitURL = explode('?', $urlActual);
+        // debuguear($splitURL);
+
         if ($metodo === 'GET') {
-            $fn = $this->rutasGET[$urlActual] ?? null;
+            $fn = $this->rutasGET[$splitURL[0]] ?? null;
         } else {
-            $fn = $this->rutasPOST[$urlActual] ?? null;
+            $fn = $this->rutasPOST[$splitURL[0]] ?? null;
         }
 
         //Proteger las rutas
@@ -41,7 +44,6 @@ class Router
             header('Location: /');
         }
         
-
         if ($fn) {
             //La URL existe y hay una funcion asociada
             call_user_func($fn, $this);
